@@ -1,0 +1,45 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+>
+
+<div class="layui-side-scroll" th:fragment="left">
+    <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+    <ul class="layui-nav layui-nav-tree" lay-filter="test">
+        <li class="layui-nav-item layui-nav-itemed">
+
+            <a class="" href="javascript:;"><i class="layui-icon layui-icon-face-smile"></i>&nbsp&nbsp&nbsp所有商品</a>
+            <dl class="layui-nav-child">
+                <dd>
+                    <a href="javascript:;" onclick="jumpPage(this)" data-url="basicInput/jump">列表一</a>
+                </dd>
+                <dd >
+                    <a href="javascript:;" onclick="a()">列表二</a>
+                </dd>
+                <dd>
+                    <a href="javascript:;">列表三</a>
+                </dd>
+                <dd>
+                    <a href="">超链接</a>
+                </dd>
+            </dl>
+        </li>
+        <shiro:hasRole name="ROLE_1">
+            <li class="layui-nav-item"><a href="javascript:;"><i class="layui-icon layui-icon-heart-fill"></i>&nbsp&nbsp&nbsp解决方案</a>
+                <dl class="layui-nav-child">
+                    <dd>
+                        <a href="javascript:;">列表一</a>
+                    </dd>
+                    <dd>
+                        <a href="javascript:;">列表二</a>
+                    </dd>
+                    <dd>
+                        <a href="">超链接</a>
+                    </dd>
+                </dl>
+            </li>
+        </shiro:hasRole>
+
+        <li class="layui-nav-item"><a href=""><i class="layui-icon layui-icon-light"></i>&nbsp&nbsp&nbsp云市场</a></li>
+        <li class="layui-nav-item"><a href=""><i class="layui-icon layui-icon-gift"></i>&nbsp&nbsp&nbsp发布商品</a></li>
+    </ul>
+</div>

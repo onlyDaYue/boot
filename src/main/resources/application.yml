@@ -1,0 +1,22 @@
+#tomcat
+server:
+  port: 8004
+#  servlet:
+#    context-path: /main/one
+spring:
+  devtools:
+    restart:
+      enabled: true
+    freemarker:
+      cache: false
+    mvc:
+      view:
+        prefix: /
+        suffix: .html
+  datasource:
+    url: jdbc:dm://127.0.0.1:5236
+    username: SYSDBA
+    password: SYSDBA
+    driver-class-name: dm.jdbc.driver.DmDriver
+mybatis:
+  mapper-locations: classpath:mapper/*.xml

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" th:href="@{/xadmin/css/font.css}">
+    <link rel="stylesheet" th:href="@{/xadmin/css/login.css}">
+    <link rel="stylesheet" th:href="@{/xadmin/css/xadmin.css}">
+    <link rel="stylesheet" th:href="@{/layui/css/layui.css}">
+</head>
+<body class="login-bg">
+<div class="login layui-anim layui-anim-up">
+    <div class="message">xxx管理系统</div>
+    <div id="darkbannerwrap"></div>
+<form  th:action="@{/user/home}" method="post">
+    <p th:text="${msg}" style="color: red"></p>
+    <p><input type="text" name="username" class="loginuser" placeholder="请输入用户名"></p>
+    <p style="margin-top: 20px"><input  name="password" type="password" class="loginpwd" placeholder="请输入密码"></p>
+    <input type="submit" value="登录" style="margin-top: 20px">
+</form>
+
+</div>
+</body>
+</html>
