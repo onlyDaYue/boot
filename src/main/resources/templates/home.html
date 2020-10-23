@@ -7,7 +7,7 @@
     <title>main界面</title>
     <style>
         #treeDemo{
-            height: 712px;
+            height: 722px;
             width: 150px;
             overflow: auto;
         }
@@ -22,23 +22,28 @@
 <div class="layui-header" th:replace="common/header :: header"></div>
  <div class="layui-body">
         <!-- 内容主体区域 -->
-     <div class="layui-row">
-         <div class="layui-col-md2">
-             <div id="treeDemo" class="ztree"></div>
-         </div>
-         <div class="layui-col-md10">
-            <div class="layui-row">
-                <!--char图-->
-                <div class="cchart" style="border: solid 0.5px rgba(0,0,0,.15)"></div>
-            </div>
-             <div class="layui-row">
-                 <!--table-->
-                 <table id="laTable" lay-filter="test" ></table>
+         <div class="layui-row">
+             <div class="layui-col-md2">
+                 <div id="treeDemo" class="ztree"></div>
+             </div>
+             <div class="layui-col-md10">
+                 <div class="charT">
+                     <!--char图-->
+                     <div class="cchart" style="border: solid 0.5px rgba(0,0,0,.15)"></div>
+                 </div>
+                 <div class="tableT">
+                     <!--table-->
+                     <table id="laTable" lay-filter="test" ></table>
+                 </div>
              </div>
          </div>
-     </div>
 </div>
 </div>
 </body>
 <script th:src="@{/com/shelf/demo/home/home.js}"></script>
+<!--<script>-->
+    <!--var bodyHeight=$(".layui-body").height();-->
+    <!--debugger;-->
+<!--</script>-->
+<!--<script th:src="@{/com/shelf/demo/home/setHeight.js}"></script>-->
 </html>

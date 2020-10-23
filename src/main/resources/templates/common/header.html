@@ -3,13 +3,13 @@
 >
 <div class="layui-header" th:fragment="header">
     <div class="layui-logo">
-        <a href="http://localhost:8004/user/home"><i class="layui-icon layui-icon-tree"  style="color: #189F92;font-weight:bolder;font-size: 40px" ></i></a>
+        <i class="layui-icon layui-icon-tree"  style="color: #189F92;font-weight:bolder;font-size: 40px" onclick="refresh()" ></i>
     </div>
     <ul class="layui-nav layui-layout-left">
     </ul>
     <ul class="layui-nav layui-layout-right">
             <!--<button shiro:hasRole="ROLE_1">ROLE_1</button>-->
-        <li class="layui-nav-item"><a href="javascript:;"> 伊泽瑞尔 </a>
+        <li class="layui-nav-item"><a href="javascript:;"> motino </a>
             <dl class="layui-nav-child">
                 <dd>
                     <a href="javascript:;" onclick="jumpPage(this)" data-url="user/information">基本资料</a>
@@ -19,6 +19,6 @@
                 </dd>
             </dl>
         </li>
-        <li class="layui-nav-item"><a href="http://localhost:8004/user/login"><i class="layui-icon layui-icon-logout" style="font-size: 20px"></i></a></li>
+        <li class="layui-nav-item"><i class="layui-icon layui-icon-logout"  onclick="jumpPage(this)" data-url="user/login" style="font-size: 20px"></i></li>
     </ul>
 </div>

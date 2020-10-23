@@ -20,3 +20,14 @@ spring:
     driver-class-name: dm.jdbc.driver.DmDriver
 mybatis:
   mapper-locations: classpath:mapper/*.xml
+shiro:
+  userNativeSessionManager : true
+
+  # disable URL session rewriting
+  sessionManager.sessionIdUrlRewritingEnabled : false
+  unauthorizedUrl: /user/login
+  web:
+    enabled: true
+  loginUrl: /user/login
+
+
