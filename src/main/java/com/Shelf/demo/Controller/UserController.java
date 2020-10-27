@@ -31,8 +31,8 @@ public class UserController {
 //            return "login";
 //        }
         UsernamePasswordToken token = new UsernamePasswordToken(username, password);
-//        token.setRememberMe(true);
-        if (!currentUser.isAuthenticated()) {
+        token.setRememberMe(true);
+        if (!currentUser.isRemembered()) {
             try {
                 currentUser.login(token);
             } catch (UnknownAccountException e) {
