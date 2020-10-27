@@ -127,7 +127,6 @@ function creatChartLine(data) {
 function creatTable() {
     layui.use('table', function(){
         var table = layui.table;
-
         //第一个实例
         table.render({
             elem: '#laTable'

@@ -2,7 +2,7 @@
 server:
   port: 8004
 #  servlet:
-#    context-path: /main/one
+#    context-path: /user/login
 spring:
   devtools:
     restart:
@@ -28,6 +28,6 @@ shiro:
   unauthorizedUrl: /user/login
   web:
     enabled: true
-  loginUrl: /user/login
+  successUrl: /user/home
 
 
