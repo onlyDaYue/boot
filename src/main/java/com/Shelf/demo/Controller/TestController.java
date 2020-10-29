@@ -2,6 +2,8 @@ package com.Shelf.demo.Controller;
 
 import com.Shelf.demo.Dao.UserHomeDao;
 import com.Shelf.demo.Domain.PlanInOut;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,6 +23,7 @@ import java.util.Map;
 @RequestMapping("/test")
 @Scope("prototype")
 public class TestController {
+    private static Logger log = LoggerFactory.getLogger(UserController.class);
 
     @Autowired
     private UserHomeDao userHomeDao;
@@ -84,7 +87,12 @@ public class TestController {
         }
     }
 
-
+    @RequestMapping(value = "/de")
+    public void testDelete(){
+//     userHomeDao.deletePlanOutData("20191011003");
+        log.info("测试aop....................");
+     log.info("上行代码删除操作");
+    }
 
 
 }

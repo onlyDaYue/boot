@@ -11,4 +11,5 @@ public interface UserHomeDao {
     public List<PlanInOut> getPlanOut();
     public PlanInOut getPlanOutData(String id);
     public List<UserRole> getUsers(String name);
+    public int deletePlanOutData(String id);
 }

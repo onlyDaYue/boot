@@ -1,10 +1,13 @@
 package com.Shelf.demo.Controller;
 
+import com.Shelf.demo.TheShelfApplication;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.session.mgt.eis.SessionDAO;
 import org.apache.shiro.subject.Subject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,9 +19,13 @@ import java.util.Collection;
  * Time:2020/8/home
  * for:用户管理
  */
+
 @Controller
 @RequestMapping("/user")
 public class UserController {
+
+    private static Logger log = LoggerFactory.getLogger(UserController.class);
+
 
     @Autowired
     private SessionDAO sessionDAO;
@@ -93,6 +100,7 @@ public class UserController {
     public String getLogin(){
         Subject subject=SecurityUtils.getSubject();
         subject.logout();;
+        log.debug("退出sesstion log");
         return "login";
     }
     @RequestMapping(value = "/information")
@@ -100,5 +108,6 @@ public class UserController {
     public String getInformations(){
         return "timeLine";
     }
+
 
 }

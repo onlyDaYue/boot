@@ -22,12 +22,16 @@ mybatis:
   mapper-locations: classpath:mapper/*.xml
 shiro:
   userNativeSessionManager : true
-
   # disable URL session rewriting
   sessionManager.sessionIdUrlRewritingEnabled : false
   unauthorizedUrl: /user/login
   web:
     enabled: true
   successUrl: /user/home
-
-
+#logging:
+#  level:
+#    root: warn
+#    com.Shelf.demo.Controller: debug
+#  file:
+#    path: D:\boot
+#    name: runLog.txt

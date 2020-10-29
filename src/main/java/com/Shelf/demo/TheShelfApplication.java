@@ -6,6 +6,8 @@ import org.apache.shiro.spring.web.config.DefaultShiroFilterChainDefinition;
 import org.apache.shiro.spring.web.config.ShiroFilterChainDefinition;
 import org.apache.shiro.subject.Subject;
 import org.mybatis.spring.annotation.MapperScan;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
@@ -23,6 +25,8 @@ import java.util.Map;
 @SpringBootApplication
 @ControllerAdvice
 public class TheShelfApplication {
+    private static Logger log = LoggerFactory.getLogger(TheShelfApplication.class);
+
     public static void main(String[] args) {
         SpringApplication.run(TheShelfApplication.class, args);
     }
@@ -53,6 +57,7 @@ public class TheShelfApplication {
         map.put("status", HttpStatus.FORBIDDEN.value());
         map.put("message", e);
         model.addAttribute("msg", map);
+        log.debug(""+e);
         return "login";
     }
 }

@@ -20,4 +20,11 @@ from "REGION_PLAN"."PLAN_IN_OUT"
             "NAME" = #{name}
         </if>
     </select>
+    <delete id="deletePlanOutData" parameterType="string">
+        delete from "REGION_PLAN"."PLAN_IN_OUT"
+        where
+        <if test="id != null and id != ''" >
+            "ID" = #{id}
+        </if>
+    </delete>
 </mapper>
