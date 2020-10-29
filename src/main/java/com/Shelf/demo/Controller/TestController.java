@@ -87,11 +87,18 @@ public class TestController {
         }
     }
 
+    /**
+     * auther:ezRiel
+     * date:2020/10/29
+     * param:[]
+     * return:void
+     * 测试接口
+     */
     @RequestMapping(value = "/de")
     public void testDelete(){
-//     userHomeDao.deletePlanOutData("20191011003");
+         userHomeDao.deletePlanOutData("20191011003");
         log.info("测试aop....................");
-     log.info("上行代码删除操作");
+        log.info("上行代码删除操作");
     }
 
 
