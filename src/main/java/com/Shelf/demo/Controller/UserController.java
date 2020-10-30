@@ -1,6 +1,4 @@
 package com.Shelf.demo.Controller;
-
-import com.Shelf.demo.TheShelfApplication;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.session.Session;
@@ -38,8 +36,7 @@ public class UserController {
 //            return "login";
 //        }
         UsernamePasswordToken token = new UsernamePasswordToken(username, password);
-        token.setRememberMe(true);
-        if (!currentUser.isRemembered()) {
+        if (!currentUser.isAuthenticated()) {
             try {
                 currentUser.login(token);
             } catch (UnknownAccountException e) {
