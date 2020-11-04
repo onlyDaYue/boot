@@ -2,13 +2,13 @@ package com.Shelf.demo.Controller;
 
 import com.Shelf.demo.Dao.UserHomeDao;
 import com.Shelf.demo.Domain.PlanInOut;
+import com.Shelf.demo.Util.RedisUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -28,6 +28,9 @@ public class TestController {
     @Autowired
     private UserHomeDao userHomeDao;
 
+    @Autowired
+    private RedisUtil redisUtil;
+
     private  int i=0;
 
     @RequestMapping(value = "/add")
@@ -44,20 +47,36 @@ public class TestController {
     @RequestMapping("/getTreeNode")
     public List<Map> reTreeList(){
         List<Map> listNode=new ArrayList<>();
-        List<PlanInOut> planOuts=userHomeDao.getPlanOut();
-        for(PlanInOut planOut:planOuts){
-            Map map=new HashMap();
-            map.put("id",planOut.getId());
-            map.put("name",planOut.getName());
-            listNode.add(map);
+        Object object=redisUtil.has("tree");
+        //先从redis查
+        if(redisUtil.get("tree")!=null){
+          listNode=(List<Map>) redisUtil.get("tree");
+        }
+        else {
+            //如果缓存没有则查数据库
+            List<PlanInOut> planOuts=userHomeDao.getPlanOut();
+            for(PlanInOut planOut:planOuts){
+                Map map=new HashMap();
+                map.put("id",planOut.getId());
+                map.put("name",planOut.getName());
+                listNode.add(map);
+            }
+            //存入redis
+            redisUtil.set("tree",listNode);
         }
         return listNode;
     }
 
     @RequestMapping("/getTreeData")
     public List<Double> getData(String id){
-       PlanInOut planInOut=userHomeDao.getPlanOutData(id);
-       return planInOut.getVectorH96();
+        if(redisUtil.has(id)){
+            return (List<Double>) redisUtil.get(id);
+        }
+        else{
+            PlanInOut planInOut=userHomeDao.getPlanOutData(id);
+            redisUtil.set(id,planInOut.getVectorH96());
+            return planInOut.getVectorH96();
+        }
     }
     @RequestMapping("/getAllData")
     public Map getAllData(){

@@ -24,7 +24,6 @@ public class UserController {
 
     private static Logger log = LoggerFactory.getLogger(UserController.class);
 
-
     @Autowired
     private SessionDAO sessionDAO;
 

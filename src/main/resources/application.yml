@@ -18,6 +18,9 @@ spring:
     username: SYSDBA
     password: SYSDBA
     driver-class-name: dm.jdbc.driver.DmDriver
+#  redis:
+#    host: localhost
+#    port: 6379
 mybatis:
   mapper-locations: classpath:mapper/*.xml
 shiro:
