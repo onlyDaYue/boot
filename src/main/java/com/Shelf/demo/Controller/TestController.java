@@ -2,11 +2,13 @@ package com.Shelf.demo.Controller;
 
 import com.Shelf.demo.Dao.UserHomeDao;
 import com.Shelf.demo.Domain.PlanInOut;
+import com.Shelf.demo.Domain.UserRole;
 import com.Shelf.demo.Util.RedisUtil;
+import com.Shelf.demo.Util.ShelfLog;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Scope;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import java.util.ArrayList;
@@ -21,7 +23,8 @@ import java.util.Map;
  */
 @RestController
 @RequestMapping("/test")
-@Scope("prototype")
+//@CrossOrigin(origins = "*", maxAge = 3600)//暴露接口 解决跨域无法访问问题
+//@Scope("prototype")
 public class TestController {
     private static Logger log = LoggerFactory.getLogger(UserController.class);
 
@@ -87,6 +90,18 @@ public class TestController {
         return map;
     }
 
+    /**
+     * auther:ezRiel
+     * date:2020/12/31
+     * param:[args]
+     * return:提供给vue界面的测试数据
+     */
+    @RequestMapping("/getVueData")
+    public List<UserRole> getData(){
+        return userHomeDao.getUsers("");
+    }
+
+
     public static void main(String args[]){
         String a="";
         for(int i=0;i<24;i++){
@@ -116,8 +131,10 @@ public class TestController {
     @RequestMapping(value = "/de")
     public void testDelete(){
          userHomeDao.deletePlanOutData("20191011003");
-        log.info("测试aop....................");
-        log.info("上行代码删除操作");
+//        log.info("测试aop....................");
+//        log.info("上行代码删除操作");
+//        redisUtil.putMap("20201105","a","add");
+//        redisUtil.delKey("20201105");
     }
 
 

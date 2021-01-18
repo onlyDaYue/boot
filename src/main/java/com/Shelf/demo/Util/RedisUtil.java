@@ -48,4 +48,26 @@ public class RedisUtil {
         return redisTemplate.hasKey(key);
     }
 
+    /**
+     * auther:ezRiel
+     * date:2020/11/5
+     * param: map
+     * 存放键值对
+     */
+    public void putMap(String key,Object hk,Object hv){
+        redisTemplate.opsForHash().put(key,hk,hv);
+    }
+
+    /**
+     * auther:ezRiel
+     * date:2020/11/5
+     * param: 唯一参数
+     *
+     */
+    public Boolean delKey(String key){
+        return redisTemplate.delete(key);
+    }
+
+
+
 }

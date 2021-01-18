@@ -23,7 +23,7 @@ public class ShiroConfig {
 ////        DefaultWebSecurityManager securityManager = new DefaultWebSecurityManager();
 ////        securityManager.setRealm(myShiroRealm());
 //        DefaultWebSecurityManager securityManager=new DefaultWebSecurityManager();
-//        IniRealm iniRealm=new IniRealm("classpath:shiro.ini");
+//        IniRealm iniRealm=new IniRealm("classpath:shiro.ini.ini");
 //        securityManager.setRealm(iniRealm);
 //        return securityManager;
 //    }
